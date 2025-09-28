@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_hub/constants.dart';
+import 'package:fruits_hub/core/helper_functions/utils/app_text_styles.dart';
+import 'package:fruits_hub/core/services/shared_preferences_singelton.dart';
+import 'package:fruits_hub/features/auth/login/presentation/views/login_view.dart';
 
 class PageViewItem extends StatelessWidget {
   final String backgroundImage;
@@ -38,9 +42,13 @@ class PageViewItem extends StatelessWidget {
                   ),
               Visibility(
                 visible: isSkip,
-                child: const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Text('تخطي'),
+                child:  Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: GestureDetector(onTap: () {
+                    Prefs.setBool(kisOnboardingSeen, true);
+                    Navigator.pushReplacementNamed(context, LoginView.routeName);
+                  }, 
+                  child: Text('تخطي',style: TextStyles.semiBold13.copyWith(color: Colors.grey.shade500))),
                 ),
               ),
             ],
@@ -50,8 +58,8 @@ class PageViewItem extends StatelessWidget {
         title,
         const SizedBox(height: 24),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text(description,textAlign: TextAlign.center,),
+          padding: const EdgeInsets.symmetric(horizontal: 37),
+          child: Text(description,textAlign: TextAlign.center,style: TextStyles.semiBold13.copyWith(color: const Color(0xFF4E5556))),
         ),
       ],
     );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub/constants.dart';
 import 'package:fruits_hub/core/helper_functions/utils/app_colors.dart';
 import 'package:fruits_hub/core/helper_functions/widgets/custom_button.dart';
+import 'package:fruits_hub/core/services/shared_preferences_singelton.dart';
+import 'package:fruits_hub/features/auth/login/presentation/views/login_view.dart';
 import 'package:fruits_hub/features/on_boarding/presentation/views/widgets/on_boarding_page_view_body.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -61,7 +63,10 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 width: 343,
                 height: 54,
                 text: 'ابدأ الان',
-                onPressed: () {},
+                onPressed: () {
+                  Prefs.setBool(kisOnboardingSeen, true);
+                  Navigator.pushReplacementNamed(context, LoginView.routeName);
+                },
               ),
             ),
           )
