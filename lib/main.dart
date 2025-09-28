@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruits_hub/core/helper_functions/on_generate_routes.dart';
+import 'package:fruits_hub/core/services/shared_preferences_singelton.dart';
 import 'package:fruits_hub/features/splash/presentation/views/splash_view.dart';
-void main() {
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   runApp(const FruitHub());
 }
 
@@ -11,16 +14,19 @@ class FruitHub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashView(),
+    return  MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Cairo',
+      ),
+      home: const SplashView(),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: OnGenerateRoutes,
       initialRoute: SplashView.routeName,
-      locale: Locale('ar'),
-      supportedLocales: [
+      locale: const Locale('ar'),
+      supportedLocales: const [
         Locale('ar'),
       ],
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
