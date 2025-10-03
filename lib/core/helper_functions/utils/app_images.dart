@@ -7,4 +7,8 @@ class AppImages {
   static const String backgroundImageItem2 = 'assets/images/background_image_item2.svg';
   static const String imageItem1 = 'assets/images/image_item1.svg';
   static const String imageItem2 = 'assets/images/image_item2.svg';
+
+  static const String googleIcon = 'assets/images/google_icon.svg';
+  static const String appleIcon = 'assets/images/apple_icon.svg';
+  static const String facebookIcon = 'assets/images/facebook_icon.svg';
 }
