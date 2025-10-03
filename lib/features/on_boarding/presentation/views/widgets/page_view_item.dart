@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fruits_hub/constants.dart';
 import 'package:fruits_hub/core/helper_functions/utils/app_text_styles.dart';
 import 'package:fruits_hub/core/services/shared_preferences_singelton.dart';
-import 'package:fruits_hub/features/auth/login/presentation/views/login_view.dart';
+import 'package:fruits_hub/features/auth/presentation/views/login_view.dart';
 
 class PageViewItem extends StatelessWidget {
   final String backgroundImage;
